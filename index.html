@@ -116,12 +116,16 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -159,6 +163,133 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/21/Hadoop%20-%201.%20Introduction/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yunchuan Ran">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YUNCHUAN RAN">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | YUNCHUAN RAN">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/03/21/Hadoop%20-%201.%20Introduction/" class="post-title-link" itemprop="url">Hadoop - 1. Introduction</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-03-21 17:15:00 / Modified: 17:21:50" itemprop="dateCreated datePublished" datetime="2022-03-21T17:15:00-05:00">2022-03-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/Big-Data/" itemprop="url" rel="index"><span itemprop="name">Big Data</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/Big-Data/Hadoop/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Hadoop-1-Introduction"><a href="#Hadoop-1-Introduction" class="headerlink" title="Hadoop - 1. Introduction"></a>Hadoop - 1. Introduction</h1><h3 id="What’s-Hadoop"><a href="#What’s-Hadoop" class="headerlink" title="What’s Hadoop?"></a>What’s Hadoop?</h3><ol>
+<li>Hadoop is a distributed system infrastructure developed by the Apache Foundation</li>
+<li>Mainly solve, the storage of massive data and the analysis and calculation of massive data</li>
+<li>Broadly speaking, Hadoop usually refers to a broader concept - the Hadoop ecosystem, including HBASE, HIVE, etc</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/2855239858/myBlog/8b593413bf68f64198bc4db50da340a78c6f4813/source/_posts/Hadoop%20-%201.%20Introduction.assets/image-20220321161607259.png" alt="image-20220321161607259"></p>
+<h3 id="What-are-the-advantages-of-Hadoop"><a href="#What-are-the-advantages-of-Hadoop" class="headerlink" title="What are the advantages of Hadoop?"></a>What are the advantages of Hadoop?</h3><ol>
+<li>High reliability: The bottom layer of Hadoop maintains multiple copies of data, so even if a computing element or storage of Hadoop fails, it will not cause data loss</li>
+<li>High scalability: Distribute task data among clusters, which can easily scale to thousands of nodes</li>
+<li>Efficiency: Under the idea of MapReduce, Hadoop works in parallel to speed up task processing</li>
+<li>High fault tolerance: the ability to automatically reassign failed tasks</li>
+</ol>
+<h3 id="Components-of-Hadoop"><a href="#Components-of-Hadoop" class="headerlink" title="Components of Hadoop"></a>Components of Hadoop</h3><p><img src="https://raw.githubusercontent.com/2855239858/myBlog/8b593413bf68f64198bc4db50da340a78c6f4813/source/_posts/Hadoop%20-%201.%20Introduction.assets/image-20220321162446307.png" alt="image-20220321162446307"></p>
+<p>Hadoop3.x has no change in composition compared to Hadoop2.x</p>
+<h3 id="Overview-of-Hadoop-Distributed-File-System-HDFS"><a href="#Overview-of-Hadoop-Distributed-File-System-HDFS" class="headerlink" title="Overview of Hadoop Distributed File System (HDFS)"></a>Overview of Hadoop Distributed File System (HDFS)</h3><ol>
+<li>NameNode (nn): Stores file <strong>metadata</strong>, such as <strong>file name, file directory structure, file attributes (generation time, number of replicas, file permissions)</strong>, and the list of <strong>blocks for each file</strong> and <strong>the DataNode where the block resides</strong>, etc.</li>
+<li>DataNode (dn): Store <strong>file block data</strong> in the local file system, as well as <strong>checksums of the block data</strong>.</li>
+<li>Secondary NameNode (2nn): Backup NameNode metadata at regular intervals</li>
+</ol>
+<h3 id="Overview-of-Yet-Another-Resource-Negotiator-YARN"><a href="#Overview-of-Yet-Another-Resource-Negotiator-YARN" class="headerlink" title="Overview of Yet Another Resource Negotiator (YARN)"></a>Overview of Yet Another Resource Negotiator (YARN)</h3><ul>
+<li>Resource Manager (RM): Manage the entire cluster resources (memory, cpu, etc.)</li>
+<li>Node Manager (NM): Manage single node server resources</li>
+<li>Application Master (AM): Manage individual task</li>
+<li>Container: It is equivalent to an independent server, which encapsulates the resources needed to run tasks, such as <strong>memory, cpu, disk, network, etc</strong>.</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/2855239858/myBlog/8b593413bf68f64198bc4db50da340a78c6f4813/source/_posts/Hadoop%20-%201.%20Introduction.assets/image-20220321163802165.png" alt="image-20220321163802165"></p>
+<p>Reminder:</p>
+<ol>
+<li>Clients can be multiple</li>
+<li>Multiple Application Masters can run on the cluster</li>
+<li>There can be multiple Containers on each Node Manager</li>
+</ol>
+<h3 id="Overview-of-MapReduce"><a href="#Overview-of-MapReduce" class="headerlink" title="Overview of MapReduce"></a>Overview of MapReduce</h3><p>MapReduce divides the computing process into two stages: Map and Reduce</p>
+<ol>
+<li>Map processes the input data in parallel</li>
+<li>Reduce summarizes the results of Map</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/2855239858/myBlog/8b593413bf68f64198bc4db50da340a78c6f4813/source/_posts/Hadoop%20-%201.%20Introduction.assets/image-20220321165315360.png" alt="image-20220321165315360"></p>
+<h3 id="Relationship-Between-HDFS-YARN-and-MapReduce"><a href="#Relationship-Between-HDFS-YARN-and-MapReduce" class="headerlink" title="Relationship Between HDFS, YARN and MapReduce"></a>Relationship Between HDFS, YARN and MapReduce</h3><p><img src="https://raw.githubusercontent.com/2855239858/myBlog/8b593413bf68f64198bc4db50da340a78c6f4813/source/_posts/Hadoop%20-%201.%20Introduction.assets/image-20220321165928634.png" alt="image-20220321165928634"></p>
+<h3 id="Technology-Ecosystem"><a href="#Technology-Ecosystem" class="headerlink" title="Technology Ecosystem"></a>Technology Ecosystem</h3><p><img src="https://raw.githubusercontent.com/2855239858/myBlog/8b593413bf68f64198bc4db50da340a78c6f4813/source/_posts/Hadoop%20-%201.%20Introduction.assets/image-20220321170920278.png" alt="image-20220321170920278"></p>
+<p><img src="https://raw.githubusercontent.com/2855239858/myBlog/8b593413bf68f64198bc4db50da340a78c6f4813/source/_posts/Hadoop%20-%201.%20Introduction.assets/image-20220321171129463.png" alt="image-20220321171129463"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/06/lc847/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -177,7 +308,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/06/lc847/" class="post-title-link" itemprop="url">847. Shortest Path Visiting All Nodes</a>
+          <a href="/2021/08/06/lc847/" class="post-title-link" itemprop="url">Leetcode - 847. Shortest Path Visiting All Nodes</a>
         </h2>
 
         <div class="post-meta-container">
@@ -195,7 +326,20 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-03-18 19:37:09" itemprop="dateModified" datetime="2022-03-18T19:37:09-05:00">2022-03-18</time>
+      <time title="Modified: 2022-03-19 21:45:32" itemprop="dateModified" datetime="2022-03-19T21:45:32-05:00">2022-03-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Leetcode/Graph/" itemprop="url" rel="index"><span itemprop="name">Graph</span></a>
+        </span>
     </span>
 
   
