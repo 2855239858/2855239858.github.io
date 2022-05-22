@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Hive SQL1. Primitive types Types are associated with the columns in the tables. The following Primitive types are supported: Integers TINYINT—1 byte integer SMALLINT—2 byte integer INT—4 byte integer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Big Data - Hive SQL">
+<meta property="og:url" content="http://example.com/2022/05/21/BigData%20-%20Hive%20SQL/index.html">
+<meta property="og:site_name" content="YUNCHUAN RAN">
+<meta property="og:description" content="Hive SQL1. Primitive types Types are associated with the columns in the tables. The following Primitive types are supported: Integers TINYINT—1 byte integer SMALLINT—2 byte integer INT—4 byte integer">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/2855239858/myBlog/main/source/_posts/BigData%20-%20Hive%20SQL.assets/image-20220520143548535.png">
+<meta property="article:published_time" content="2022-05-21T23:56:00.000Z">
+<meta property="article:modified_time" content="2022-05-22T00:15:11.908Z">
+<meta property="article:author" content="Yunchuan Ran">
+<meta property="article:tag" content="Java,Hive,BigData,SQL">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/2855239858/myBlog/main/source/_posts/BigData%20-%20Hive%20SQL.assets/image-20220520143548535.png">
+
+
+<link rel="canonical" href="http://example.com/2022/05/21/BigData%20-%20Hive%20SQL/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/05/21/BigData%20-%20Hive%20SQL/","path":"2022/05/21/BigData - Hive SQL/","title":"Big Data - Hive SQL"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Big Data - Hive SQL | YUNCHUAN RAN</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">YUNCHUAN RAN</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hive-SQL"><span class="nav-number">1.</span> <span class="nav-text">Hive SQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Primitive-types"><span class="nav-number">1.0.1.</span> <span class="nav-text">1. Primitive types</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Type-of-tables"><span class="nav-number">1.0.2.</span> <span class="nav-text">2. Type of tables</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Sort"><span class="nav-number">1.0.3.</span> <span class="nav-text">3. Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-Order-By"><span class="nav-number">1.0.3.0.1.</span> <span class="nav-text">(1) Order By</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-Sort-By"><span class="nav-number">1.0.3.0.2.</span> <span class="nav-text">(2) Sort By</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-Distribute-By"><span class="nav-number">1.0.3.0.3.</span> <span class="nav-text">(3) Distribute By</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-Cluster-By"><span class="nav-number">1.0.3.0.4.</span> <span class="nav-text">(4) Cluster By</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Partitioning-vs-Bucketing"><span class="nav-number">1.0.4.</span> <span class="nav-text">4. Partitioning vs Bucketing</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-Partition-table"><span class="nav-number">1.0.4.0.1.</span> <span class="nav-text">(1) Partition table</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-Bucketed-table"><span class="nav-number">1.0.4.0.2.</span> <span class="nav-text">(2) Bucketed table</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Yunchuan Ran</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/21/BigData%20-%20Hive%20SQL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Yunchuan Ran">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YUNCHUAN RAN">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Big Data - Hive SQL | YUNCHUAN RAN">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Big Data - Hive SQL
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-05-21 16:56:00 / Modified: 17:15:11" itemprop="dateCreated datePublished" datetime="2022-05-21T16:56:00-07:00">2022-05-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/Big-Data/" itemprop="url" rel="index"><span itemprop="name">Big Data</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/Big-Data/Hive/" itemprop="url" rel="index"><span itemprop="name">Hive</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/Big-Data/Hive/SQL/" itemprop="url" rel="index"><span itemprop="name">SQL</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Hive-SQL"><a href="#Hive-SQL" class="headerlink" title="Hive SQL"></a>Hive SQL</h1><h3 id="1-Primitive-types"><a href="#1-Primitive-types" class="headerlink" title="1. Primitive types"></a>1. Primitive types</h3><ul>
+<li>Types are associated with the columns in the tables. The following Primitive types are supported:</li>
+<li>Integers<ul>
+<li>TINYINT—1 byte integer</li>
+<li>SMALLINT—2 byte integer</li>
+<li>INT—4 byte integer</li>
+<li>BIGINT—8 byte integer<span id="more"></span></li>
+</ul>
+</li>
+<li>Boolean type<ul>
+<li>BOOLEAN—TRUE&#x2F;FALSE</li>
+</ul>
+</li>
+<li>Floating point numbers<ul>
+<li>FLOAT—single precision</li>
+<li>DOUBLE—Double precision</li>
+</ul>
+</li>
+<li>Fixed point numbers<ul>
+<li>DECIMAL—a fixed point value of user defined scale and precision</li>
+</ul>
+</li>
+<li>String types<ul>
+<li>STRING—sequence of characters in a specified character set</li>
+<li>VARCHAR—sequence of characters in a specified character set with a maximum length</li>
+<li>CHAR—sequence of characters in a specified character set with a defined length</li>
+</ul>
+</li>
+<li>Date and time types<ul>
+<li>TIMESTAMP — A date and time without a timezone (“LocalDateTime” semantics)</li>
+<li>TIMESTAMP WITH LOCAL TIME ZONE — A point in time measured down to nanoseconds (“Instant” semantics)</li>
+<li>DATE—a date</li>
+</ul>
+</li>
+<li>Binary types<ul>
+<li>BINARY—a sequence of bytes</li>
+</ul>
+</li>
+</ul>
+<p>The Types are organized in the following hierarchy (where the parent is a super type of all the children instances):</p>
+<p><img src="https://raw.githubusercontent.com/2855239858/myBlog/main/source/_posts/BigData%20-%20Hive%20SQL.assets/image-20220520143548535.png" alt="image-20220520143548535"></p>
+<p>This type hierarchy defines how the types are implicitly converted in the query language. Implicit conversion is allowed for types from child to an ancestor. So when a query expression expects type1 and the data is of type2, type2 is implicitly converted to type1 if type1 is an ancestor of type2 in the type hierarchy. Note that the type hierarchy allows the implicit conversion of STRING to DOUBLE.</p>
+<h3 id="2-Type-of-tables"><a href="#2-Type-of-tables" class="headerlink" title="2. Type of tables"></a>2. Type of tables</h3><ul>
+<li><strong>Managed Table</strong><ul>
+<li>Hive will controls the lifecycle of data</li>
+</ul>
+</li>
+<li><strong>External Table</strong><ul>
+<li>Because the table is an external table, Hive doesn’t think it fully owns the data. Deleting the table will not delete the data, but the metadata information describing the table will be deleted.</li>
+</ul>
+</li>
+<li><strong>Convert table type</strong><ul>
+<li>From external table to managed table: alter table xxx set tblproperties(‘EXTERNAL’&#x3D;’FALSE’);</li>
+<li>From managed table to external table: alter table xxx set tblproperties(‘EXTERNAL’&#x3D;’TRUE’);</li>
+</ul>
+</li>
+<li><strong>Partition Table</strong><ul>
+<li>The partition table actually corresponds to an independent folder on the HDFS file system, under which all the data files of the partition are located</li>
+<li>The partition table in Hive actually means the partition of folder</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-Sort"><a href="#3-Sort" class="headerlink" title="3. Sort"></a>3. Sort</h3><h5 id="1-Order-By"><a href="#1-Order-By" class="headerlink" title="(1) Order By"></a>(1) Order By</h5><ul>
+<li>Global sort, a Reducer. Apply to the final result.</li>
+<li>Can specify “ASC” ascend or “DESC” descend.</li>
+<li>Can apply to multi columns: order by col1, col2</li>
+</ul>
+<h5 id="2-Sort-By"><a href="#2-Sort-By" class="headerlink" title="(2) Sort By"></a>(2) Sort By</h5><ul>
+<li>Sort internally by each Reducer, not for the global result set.</li>
+</ul>
+<h5 id="3-Distribute-By"><a href="#3-Distribute-By" class="headerlink" title="(3) Distribute By"></a>(3) Distribute By</h5><ul>
+<li>Similar to partition in MR, partition, combined with sort by.</li>
+<li>Hive demands to use ‘DISTRIBUTE BY’ before ‘SORT BY’.</li>
+</ul>
+<h5 id="4-Cluster-By"><a href="#4-Cluster-By" class="headerlink" title="(4) Cluster By"></a>(4) Cluster By</h5><ul>
+<li>When the distribute by and sorts by fields are the same, the cluster by method can be used.</li>
+<li>Has the functions of both ‘DISTRIBUTE BY’ and ‘SORT BY’, but can only apply to ASC.</li>
+<li>EX:<ul>
+<li>select * from emp cluster by deptno;</li>
+<li>select *from emp distribute by deptno sort by deptno;</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-Partitioning-vs-Bucketing"><a href="#4-Partitioning-vs-Bucketing" class="headerlink" title="4. Partitioning vs Bucketing"></a>4. Partitioning vs Bucketing</h3><h5 id="1-Partition-table"><a href="#1-Partition-table" class="headerlink" title="(1) Partition table"></a>(1) Partition table</h5><ul>
+<li>The partition table actually corresponds to an independent folder on the HDFS file system, under which all the data files of the partition are located.</li>
+<li>A partition in Hive is a sub-directory, which divides a large data set into smaller data sets according to business needs.</li>
+</ul>
+<p>Example:</p>
+<ul>
+<li>Create partition table:</li>
+</ul>
+<p><code> create table dept_partition( deptno int, dname string, loc string) partitioned by (month string) row format delimited fields terminated by &#39;\t&#39;;</code></p>
+<ul>
+<li>Search in partition table:</li>
+</ul>
+<p> <code>select * from dept_partition where month=&#39;201709&#39;;</code></p>
+<ul>
+<li>Add partitions:</li>
+</ul>
+<p><code>alter table dept_partition add partition(month=&#39;201706&#39;) ;</code></p>
+<p><code>hive (default)&gt; alter table dept_partition add partition(month=&#39;201705&#39;) partition(month=&#39;201704&#39;);</code></p>
+<ul>
+<li>Delete partitions:</li>
+</ul>
+<p><code>alter table dept_partition drop partition (month=&#39;201704&#39;);</code></p>
+<p><code>alter table dept_partition drop partition (month=&#39;201705&#39;), partition (month=&#39;201706&#39;);</code></p>
+<ul>
+<li>Show partition number:</li>
+</ul>
+<p> <code>show partitions dept_partition;</code></p>
+<h5 id="2-Bucketed-table"><a href="#2-Bucketed-table" class="headerlink" title="(2) Bucketed table"></a>(2) Bucketed table</h5><ul>
+<li>Partitioning is for data storage paths; bucketing is for data files.</li>
+</ul>
+<p>Example:</p>
+<ul>
+<li>Create bucketed table:</li>
+</ul>
+<p><code>create table stu_buck(id int, name string) clustered by(id) into 4 buckets row format delimited fields terminated by &#39;\t&#39;;</code></p>
+<ul>
+<li>Show table structure:</li>
+</ul>
+<p><code>desc formatted stu_buck;</code></p>
+<ul>
+<li>Normal query:</li>
+</ul>
+<p> <code>select * from stu_buck;</code></p>
+<ul>
+<li>Bucket sampling query:<ul>
+<li>y must be a multiple or factor of the total number of buckets in the table. Hive decides the sampling ratio according to the size of y. For example, the table is divided into 4 copies in total. When y&#x3D;2, the data of (4&#x2F;2&#x3D;) 2 buckets is extracted, and when y&#x3D;8, the data of (4&#x2F;8&#x3D;) 1&#x2F;2 buckets is extracted.</li>
+<li>x indicates which bucket to start extracting from. If multiple partitions need to be extracted, the subsequent partition number is the current partition number plus y. For example, the total number of buckets in a table is 4, and tablesample(bucket 1 out of 2) means that a total of (4&#x2F;2&#x3D;) 2 buckets of data are extracted, and the 1st(x) and 3rd(x+y) buckets are extracted. The data.</li>
+<li>x must be smaller than y, otherwise error will occur.</li>
+</ul>
+</li>
+</ul>
+<p><code>select * from stu_buck tablesample(bucket x out of y on id);</code></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java-Hive-BigData-SQL/" rel="tag"># Java,Hive,BigData,SQL</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/04/01/Spin%20locks%20-%201.%20MCS%20and%20qspinlock/" rel="prev" title="Spin Locks - 1. MCS and qspinlock">
+                  <i class="fa fa-chevron-left"></i> Spin Locks - 1. MCS and qspinlock
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yunchuan Ran</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="847. Shortest Path Visiting All NodesDescription：You have an undirected, connected graph of n nodes labeled from 0 to n - 1. You are given an array graph where graph[i] is a list of all the nodes c">
 <meta property="og:type" content="article">
@@ -30,8 +30,8 @@
 <meta property="og:image" content="http://example.com/2021/08/06/lc847/lc847/847.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/2855239858/myBlog/main/source/_posts/lc847_img/examples.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/2855239858/myBlog/main/source/_posts/lc847_img/formula.png">
-<meta property="article:published_time" content="2021-08-06T19:10:52.000Z">
-<meta property="article:modified_time" content="2022-03-20T02:45:32.028Z">
+<meta property="article:published_time" content="2021-08-06T21:10:52.000Z">
+<meta property="article:modified_time" content="2022-05-22T00:16:31.231Z">
 <meta property="article:author" content="Yunchuan Ran">
 <meta property="article:tag" content="Graph problem,BFS,Floyd">
 <meta name="twitter:card" content="summary">
@@ -133,16 +133,16 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -210,14 +210,14 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2021-08-06 14:10:52" itemprop="dateCreated datePublished" datetime="2021-08-06T14:10:52-05:00">2021-08-06</time>
+      <time title="Created: 2021-08-06 14:10:52" itemprop="dateCreated datePublished" datetime="2021-08-06T14:10:52-07:00">2021-08-06</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-03-19 21:45:32" itemprop="dateModified" datetime="2022-03-19T21:45:32-05:00">2022-03-19</time>
+      <time title="Modified: 2022-05-21 17:16:31" itemprop="dateModified" datetime="2022-05-21T17:16:31-07:00">2022-05-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -263,6 +263,7 @@ Examples
 <h1 id="847-Shortest-Path-Visiting-All-Nodes"><a href="#847-Shortest-Path-Visiting-All-Nodes" class="headerlink" title="847. Shortest Path Visiting All Nodes"></a><strong>847. Shortest Path Visiting All Nodes</strong></h1><h5 id="Description："><a href="#Description：" class="headerlink" title="Description："></a>Description：</h5><p>You have an undirected, connected graph of n nodes labeled from 0 to n - 1. You are given an array graph where graph[i] is a list of all the nodes connected with node i by an edge.</p>
 <p>Return the length of the shortest path that visits every node. You may start and stop at any node, you may revisit nodes multiple times, and you may reuse edges.</p>
 <p><img src="https://raw.githubusercontent.com/2855239858/myBlog/main/source/_posts/lc847_img/examples.png" alt="examples"></p>
+<span id="more"></span>
 <h6 id="Method-1-BFS-and-state-compress"><a href="#Method-1-BFS-and-state-compress" class="headerlink" title="Method 1: BFS and state compress"></a>Method 1: BFS and state compress</h6><p>BFS: <strong>queue</strong> is used to select nodes by the divergent mode.</p>
 <p>Compress: because 1 &lt;&#x3D; n &lt;&#x3D; 12, so <strong>uint16_t</strong> or bigger type is enough, each of the bit represent whether the current <strong>node</strong> has been selected. For example, uint16_t <strong>2</strong> which has the binary representation <strong>0000000000000010</strong>, means <strong>node 2</strong> has been selected and others haven’t.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">int shortestPathLength(vector&lt;vector&lt;int&gt;&gt;&amp; graph) &#123;</span><br><span class="line">    int size = graph.size();</span><br><span class="line">    //tuple&lt;a, b, c&gt; a：节点 b：mask c：dist</span><br><span class="line">    queue&lt;tuple&lt;uint8_t, uint16_t, int&gt;&gt; q;</span><br><span class="line">    // vector&lt;vector&lt;uint8_t&gt;&gt; visited(size, vector&lt;uint8_t&gt;(1&lt;&lt;size));</span><br><span class="line">    uint8_t visited[size][1&lt;&lt;size];</span><br><span class="line">    memset(visited, 0, sizeof(uint8_t) * size * (1&lt;&lt;size));</span><br><span class="line"></span><br><span class="line">    for(int i = 0; i &lt; size; ++i) &#123;</span><br><span class="line">        q.emplace(i, 1&lt;&lt;i, 0);</span><br><span class="line">        visited[i][1&lt;&lt;i] = 1;</span><br><span class="line">    &#125;</span><br><span class="line">    int ans = 0;</span><br><span class="line">    while(!q.empty()) &#123;</span><br><span class="line">        auto [u, mask, dist] = q.front();</span><br><span class="line">        q.pop();</span><br><span class="line"></span><br><span class="line">        //是否已经遍历完所有节点</span><br><span class="line">        //因为采用的是bfs的方法，所以先遍历完的一定是最短路径</span><br><span class="line">        if(mask == (1 &lt;&lt; size) - 1) &#123;</span><br><span class="line">            ans = dist;</span><br><span class="line">            break;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        //遍历临界节点</span><br><span class="line">        for(int v: graph[u]) &#123;</span><br><span class="line">            int mask_v = mask | (1 &lt;&lt; v);</span><br><span class="line">            if(visited[v][mask_v] == 0) &#123;</span><br><span class="line">                q.emplace(v, mask_v, dist + 1);</span><br><span class="line">                // q.push(&#123;v, mask_v, dist + 1&#125;);</span><br><span class="line">                visited[v][mask_v] = 1;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return ans;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -316,7 +317,7 @@ Examples
   </span>
   <span class="author" itemprop="copyrightHolder">Yunchuan Ran</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
   </div>
 
     </div>
@@ -324,7 +325,7 @@ Examples
 
   
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
 
   
 
