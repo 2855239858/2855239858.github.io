@@ -28,8 +28,9 @@
 <meta property="og:description" content="Hive SQL1. Primitive types Types are associated with the columns in the tables. The following Primitive types are supported: Integers TINYINT—1 byte integer SMALLINT—2 byte integer INT—4 byte integer">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://raw.githubusercontent.com/2855239858/myBlog/main/source/_posts/BigData%20-%20Hive%20SQL.assets/image-20220520143548535.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/2855239858/myBlog/main/source/_posts/BigData%20-%20Hive%20SQL.assets/image-20220529223456341.png">
 <meta property="article:published_time" content="2022-05-21T23:56:00.000Z">
-<meta property="article:modified_time" content="2022-05-22T07:45:04.287Z">
+<meta property="article:modified_time" content="2022-05-30T05:37:45.941Z">
 <meta property="article:author" content="Yunchuan Ran">
 <meta property="article:tag" content="Java,Hive,BigData,SQL">
 <meta name="twitter:card" content="summary">
@@ -118,7 +119,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hive-SQL"><span class="nav-number">1.</span> <span class="nav-text">Hive SQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Primitive-types"><span class="nav-number">1.0.1.</span> <span class="nav-text">1. Primitive types</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Type-of-tables"><span class="nav-number">1.0.2.</span> <span class="nav-text">2. Type of tables</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Sort"><span class="nav-number">1.0.3.</span> <span class="nav-text">3. Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-Order-By"><span class="nav-number">1.0.3.0.1.</span> <span class="nav-text">(1) Order By</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-Sort-By"><span class="nav-number">1.0.3.0.2.</span> <span class="nav-text">(2) Sort By</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-Distribute-By"><span class="nav-number">1.0.3.0.3.</span> <span class="nav-text">(3) Distribute By</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-Cluster-By"><span class="nav-number">1.0.3.0.4.</span> <span class="nav-text">(4) Cluster By</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Partitioning-vs-Bucketing"><span class="nav-number">1.0.4.</span> <span class="nav-text">4. Partitioning vs Bucketing</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-Partition-table"><span class="nav-number">1.0.4.0.1.</span> <span class="nav-text">(1) Partition table</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-Bucketed-table"><span class="nav-number">1.0.4.0.2.</span> <span class="nav-text">(2) Bucketed table</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-Useful-Functions"><span class="nav-number">1.0.5.</span> <span class="nav-text">5. Useful Functions</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-NVL-replace-for-NULL-value"><span class="nav-number">1.0.5.0.1.</span> <span class="nav-text">(1) NVL: replace for NULL value</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-CASE-WHEN-conditional-expression"><span class="nav-number">1.0.5.0.2.</span> <span class="nav-text">(2) CASE WHEN: conditional expression</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hive-SQL"><span class="nav-number">1.</span> <span class="nav-text">Hive SQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Primitive-types"><span class="nav-number">1.0.1.</span> <span class="nav-text">1. Primitive types</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Type-of-tables"><span class="nav-number">1.0.2.</span> <span class="nav-text">2. Type of tables</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Sort"><span class="nav-number">1.0.3.</span> <span class="nav-text">3. Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-Order-By"><span class="nav-number">1.0.3.0.1.</span> <span class="nav-text">(1) Order By</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-Sort-By"><span class="nav-number">1.0.3.0.2.</span> <span class="nav-text">(2) Sort By</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-Distribute-By"><span class="nav-number">1.0.3.0.3.</span> <span class="nav-text">(3) Distribute By</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-Cluster-By"><span class="nav-number">1.0.3.0.4.</span> <span class="nav-text">(4) Cluster By</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Partitioning-vs-Bucketing"><span class="nav-number">1.0.4.</span> <span class="nav-text">4. Partitioning vs Bucketing</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-Partition-table"><span class="nav-number">1.0.4.0.1.</span> <span class="nav-text">(1) Partition table</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-Bucketed-table"><span class="nav-number">1.0.4.0.2.</span> <span class="nav-text">(2) Bucketed table</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-Useful-Functions"><span class="nav-number">1.0.5.</span> <span class="nav-text">5. Useful Functions</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-NVL-replace-for-NULL-value"><span class="nav-number">1.0.5.0.1.</span> <span class="nav-text">(1) NVL: replace for NULL value</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-CASE-WHEN-conditional-expression"><span class="nav-number">1.0.5.0.2.</span> <span class="nav-text">(2) CASE WHEN: conditional expression</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-row-to-column-functions"><span class="nav-number">1.0.5.0.3.</span> <span class="nav-text">(3) row to column functions</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-column-to-tow-functions"><span class="nav-number">1.0.5.0.4.</span> <span class="nav-text">(4) column to tow functions</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-Window-functions"><span class="nav-number">1.0.5.0.5.</span> <span class="nav-text">(5) Window functions</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-RANK"><span class="nav-number">1.0.5.0.6.</span> <span class="nav-text">(6) RANK</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -215,7 +216,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-05-22 00:45:04" itemprop="dateModified" datetime="2022-05-22T00:45:04-07:00">2022-05-22</time>
+      <time title="Modified: 2022-05-29 22:37:45" itemprop="dateModified" datetime="2022-05-29T22:37:45-07:00">2022-05-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -394,6 +395,64 @@
 </ul>
 <p>Example:</p>
 <p><code>select  dept_id,  sum(case sex when &#39;男&#39; then 1 else 0 end) male_count,  sum(case sex when &#39;女&#39; then 1 else 0 end) female_count from emp_sex group by dept_id;</code></p>
+<h5 id="3-row-to-column-functions"><a href="#3-row-to-column-functions" class="headerlink" title="(3) row to column functions"></a>(<a href="">3</a>) row to column functions</h5><ul>
+<li><strong>CONCAT(string A&#x2F;col, string B&#x2F;col, …)</strong>: Returns the result of the concatenation of the input strings, supports any number of input strings.</li>
+<li><strong>CONCAT_WS(separator, str1, str2, …)</strong>: Concatenates the strings end-to-end with the separator between them.<ul>
+<li>Eg: concat_ws(‘,’, ‘A’, ‘B’, ‘C’) &#x3D;&gt; ‘A,B,C’</li>
+</ul>
+</li>
+<li><strong>COLLECT_SET(col)</strong>: The function only accepts basic data types, and its main function is to de-aggregate the value of a field to generate an array type field.</li>
+<li><strong>COLLECT_LIST(col)</strong>: Similar with collect_set, but will keep the duplicate values.</li>
+</ul>
+<h5 id="4-column-to-tow-functions"><a href="#4-column-to-tow-functions" class="headerlink" title="(4) column to tow functions"></a>(4) column to tow functions</h5><ul>
+<li><strong>EXPLODE(col)</strong>: Split a complex array or map structure in one column of hive into multiple rows.</li>
+<li><strong>LATER VIEW</strong>:<ul>
+<li>Usage: LATER VIEW udft(expression) tableAlias AS columnAlias</li>
+<li>It is used with <strong>UDTFs such as split, explode, etc</strong>. It can split a column of data into multiple rows of data, and on this basis, the split data can be aggregated.</li>
+</ul>
+</li>
+</ul>
+<h5 id="5-Window-functions"><a href="#5-Window-functions" class="headerlink" title="(5) Window functions"></a>(5) Window functions</h5><ul>
+<li><strong>Usage</strong>: <em><strong>SELECT <columns_name>, <aggregate>(column_name) OVER (<windowing specification>) FROM <table_name>;</strong></em><ul>
+<li><em>column_name</em> – column name of the table</li>
+<li><em>Aggregate</em> – Any aggregate function(s) like COUNT, AVG, MIN, MAX</li>
+<li><em>Windowing specification</em> – It includes following:<ul>
+<li><strong>PARTITION BY</strong> – Takes a column(s) of the table as a reference.</li>
+<li><strong>ORDER BY</strong> – Specified the Order of column(s) either Ascending or Descending.</li>
+<li><strong>Frame</strong> – Specified the boundary of the frame by stat and end value. The boundary either be a type of RANGE or ROW followed by PRECEDING, FOLLOWING and any value.</li>
+<li>These three (PARTITION, ORDER BY, and Window frame) are either be alone or together.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>WINDOWING Specification</strong>: In the windowing frame, you can define the subset of rows in which the windowing function will work. You can specify this subset using upper and lower boundary value using windowing specification.<ul>
+<li><strong>Syntax</strong>: <em><strong>ROW|RANGE BETWEEN <upper expression> AND <lower expression></strong></em></li>
+<li><strong>UPPER EXPRESSION</strong> can have these 3 value:<ul>
+<li><em>UNBOUNDED PRECEDING</em> – It denotes window will start from the first row of the group&#x2F;partition.</li>
+<li><em>CURRENT ROW</em> – Window will start from the current row.</li>
+<li><em><INTEGER VALUE></em> PRECEDING – Provide any specific row to start window</li>
+</ul>
+</li>
+<li><strong>LOWER EXPRESSION</strong><ul>
+<li><em>UNBOUNDED FOLLOWING</em> – It means the window will end at the last row of the group&#x2F;partition.</li>
+<li><em>CURRENT ROW</em> – Window will end at the current row</li>
+<li><em><INTEGER VALUE> FOLLOWING</em> – Window will end at specific row</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>LEAD</strong>: It is an analytics function used to return the data from the next set of rows. By default, the lead is of 1 row and it will return NULL in case it exceeds the current window.</li>
+<li><strong>LAG</strong>: It is the opposite of LEAD function, it returns the data from the previous set of data. By default lag is of 1 row and return NULL in case the lag for the current row is exceeded before the beginning of the window.</li>
+<li><strong>FIRST_VALUE</strong>: This function returns the value from the first row in the window based on the clause and assigned to all the rows of the same group.</li>
+<li><strong>LAST_VALUE</strong>: In reverse of FIRST_VALUE, it return the value from the last row in a window based on the clause and assigned to all the rows of the same group.</li>
+</ul>
+<p>For more examples, refer to <a target="_blank" rel="noopener" href="https://bigdataprogrammers.com/windowing-functions-in-hive/">https://bigdataprogrammers.com/windowing-functions-in-hive/</a></p>
+<h5 id="6-RANK"><a href="#6-RANK" class="headerlink" title="(6) RANK"></a>(6) RANK</h5><ul>
+<li>RANK(): It will repeat when the order is the same, the total will not change.</li>
+<li>DENSE_RANK(): Duplicates when the ordering is the same, the total will decrease.</li>
+<li>ROW_NUMBER(): Will be calculated in order.</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/2855239858/myBlog/main/source/_posts/BigData%20-%20Hive%20SQL.assets/image-20220529223456341.png" alt="image-20220529223456341"></p>
 
     </div>
 
